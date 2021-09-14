@@ -1,3 +1,12 @@
-export interface Options {
-  // define your plugin options here
+export interface Config {
+  apiKey: string
+  appVersion: string
+  appType?: string
+  url?: string
+}
+export interface Options extends Config {
+  publicPath?: string
+}
+export interface Asset extends Config {
+  path: string
 }

@@ -1,10 +1,18 @@
 {
   "private": true,
   "scripts": {
-    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x 'vite'"
+    "prebuild": "rm -rf dist",
+    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x 'vite'",
+    "build:vite": "vite build",
+    "build:rollup": "rollup -c",
+    "build:webpack": "webpack"
   },
   "devDependencies": {
+    "nodemon": "^2.0.12",
+    "rollup": "^2.56.3",
     "vite": "^2.5.3",
-    "vite-plugin-inspect": "^0.2.2"
+    "vite-plugin-inspect": "^0.2.2",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0"
   }
 }
