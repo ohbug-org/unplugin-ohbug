@@ -2,7 +2,6 @@
 
 [![npm](https://img.shields.io/npm/v/@ohbug/unplugin.svg?style=flat-square)](https://www.npmjs.com/package/@ohbug/unplugin)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@ohbug/unplugin?style=flat-square)](https://bundlephobia.com/result?p=@ohbug/unplugin)
-[![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 English | [简体中文](./README-zh_CN.md)
 
@@ -11,7 +10,7 @@ Auto upload your sourceMap files to Ohbug for Vite, Webpack and Rollup. Powered 
 ## Installation
 
 ```
-yarn add @ohbug/unplugin --dev
+npm install @ohbug/unplugin -D
 ```
 
 ## Usage
@@ -123,7 +122,7 @@ interface Options {
   apiKey: string
   appVersion: string
   appType?: string
-  url?: string
+  endpoint?: string
 }
 ```
 
@@ -139,6 +138,6 @@ The version number of your app. Conveniently locate the problem version.
 
 The type of your app. If your app's codebase contains different entries, but reports to the same service, you may need to add `appType` to indicate the type of entry for the source of the problem.
 
-### url
+### endpoint
 
 The url of the upload server

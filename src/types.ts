@@ -2,7 +2,7 @@ export interface Config {
   apiKey: string
   appVersion: string
   appType?: string
-  url?: string
+  endpoint?: string
 }
 export interface Options extends Config {
   publicPath?: string

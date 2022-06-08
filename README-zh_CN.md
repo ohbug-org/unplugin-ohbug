@@ -2,7 +2,6 @@
 
 [![npm](https://img.shields.io/npm/v/@ohbug/unplugin.svg?style=flat-square)](https://www.npmjs.com/package/@ohbug/unplugin)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@ohbug/unplugin?style=flat-square)](https://bundlephobia.com/result?p=@ohbug/unplugin)
-[![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 [English](./README.md) | 简体中文
 
@@ -11,7 +10,7 @@
 ## 安装
 
 ```
-yarn add @ohbug/unplugin --dev
+npm install @ohbug/unplugin -D
 ```
 
 ## 使用
@@ -123,7 +122,7 @@ interface Options {
   apiKey: string
   appVersion: string
   appType?: string
-  url?: string
+  endpoint?: string
 }
 ```
 
@@ -139,6 +138,6 @@ interface Options {
 
 如果您的 app 的代码库包含不同的入口，但向同一个服务上报，则可能需要添加 `appType` 表示问题来源的入口类型。
 
-### url
+### endpoint
 
 上传服务器的 URL
