@@ -61,7 +61,7 @@
     "lint": "eslint . --fix",
     "lint:fix": "npm run lint -- --fix",
     "play": "npm -C playground run dev",
-    "release": "release-it",
+    "release": "npm run build && release-it",
     "start": "esno src/index.ts",
     "preinstall": "npx only-allow pnpm",
     "update:deps": "pnpm update -i -r --latest",
