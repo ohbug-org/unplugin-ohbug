@@ -1,4 +1,4 @@
-import Unplugin from '..'
+import Unplugin from '../dist/rollup'
 
 export default {
   input: 'main.js',
@@ -8,9 +8,9 @@ export default {
     format: 'esm',
   },
   plugins: [
-    Unplugin.rollup({
+    Unplugin({
       apiKey:
-        'e99df437ec10e77fbd84bd8f093da749a36c633cca4d0200f33838cbe9b52833',
+        'f8b38e2ea956e6d295aefcc88e0bbd6739021fd07eebe420e71a4ac4d70f43eb',
       appVersion: '0.0.0',
       appType: 'rollup',
     }),

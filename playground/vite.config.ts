@@ -1,14 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-import Unplugin from '../dist'
+import Unplugin from '../dist/vite'
 
 export default defineConfig({
   plugins: [
     Inspect(),
-    Unplugin.vite({
+    Unplugin({
       apiKey:
-        'e99df437ec10e77fbd84bd8f093da749a36c633cca4d0200f33838cbe9b52833',
+        'f8b38e2ea956e6d295aefcc88e0bbd6739021fd07eebe420e71a4ac4d70f43eb',
       appVersion: '0.0.0',
       appType: 'vite',
     }),

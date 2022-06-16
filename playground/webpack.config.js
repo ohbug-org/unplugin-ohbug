@@ -1,5 +1,5 @@
 const path = require('path')
-const Unplugin = require('..')
+const Unplugin = require('../dist/webpack').default
 
 module.exports = {
   mode: 'production',
@@ -12,9 +12,9 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   plugins: [
-    Unplugin.default.webpack({
+    Unplugin({
       apiKey:
-        'e99df437ec10e77fbd84bd8f093da749a36c633cca4d0200f33838cbe9b52833',
+        'f8b38e2ea956e6d295aefcc88e0bbd6739021fd07eebe420e71a4ac4d70f43eb',
       appVersion: '0.0.0',
       appType: 'webpack',
     }),
