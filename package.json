@@ -1,6 +1,6 @@
 {
   "name": "@ohbug/unplugin",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Unplugin for upload your sourceMap files to Ohbug",
   "keywords": [
     "unplugin",
