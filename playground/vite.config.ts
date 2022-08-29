@@ -8,7 +8,7 @@ export default defineConfig({
     Inspect(),
     Unplugin({
       apiKey:
-        'f8b38e2ea956e6d295aefcc88e0bbd6739021fd07eebe420e71a4ac4d70f43eb',
+        '52ec8631e1583957f7abb5216ec7512e6824aab90eb2307a1f6ed7cf5f33f8d3',
       appVersion: '0.0.0',
       appType: 'vite',
     }),

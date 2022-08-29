@@ -6,6 +6,7 @@ export interface Config {
 }
 export interface Options extends Config {
   publicPath?: string
+  deleteAfterUploading?: boolean
 }
 export interface Asset extends Config {
   path: string

@@ -29,11 +29,13 @@ export default createUnplugin<Options>(options => ({
   name: NAME,
 
   writeBundle(outputOptions: any, outputBundle: any) {
-    if (typeof options?.apiKey !== 'string' || options.apiKey.length < 1)
+    if (typeof options?.apiKey !== 'string' || options.apiKey.length < 1) {
       throw new Error(`${LOG_PREFIX} "apiKey" is required!`)
+    }
 
-    if (typeof options.appVersion !== 'string' || options.appVersion.length < 1)
+    if (typeof options.appVersion !== 'string' || options.appVersion.length < 1) {
       throw new Error(`${LOG_PREFIX} "appVersion" is required!`)
+    }
 
     const assets = Object.keys(outputBundle)
       .map((key) => {
@@ -59,8 +61,9 @@ export default createUnplugin<Options>(options => ({
     const plugin = async(compilation: Compilation) => {
       const assets = getAssets(compiler, compilation, options!)
 
-      if (assets?.length)
+      if (assets?.length) {
         await Promise.all(assets.map(asset => uploadSourceMap(asset)))
+      }
     }
 
     if (compiler.hooks && compiler.hooks.afterEmit) {
