@@ -1,4 +1,5 @@
-import { resolve } from 'path'
+import { resolve } from 'node:path'
+import { unlink } from 'node:fs/promises'
 import type { Compilation, Compiler } from 'webpack'
 import { createUnplugin } from 'unplugin'
 import { uploadSourceMap } from '@ohbug/cli'
@@ -25,7 +26,13 @@ function getAssets(
   }, [])
 }
 
-export default createUnplugin<Options>(options => ({
+async function deleteSourceMaps(assets: Asset[], options: Options) {
+  if (options.deleteAfterUploading) {
+    await Promise.all(assets.map(asset => asset && unlink(asset.path)))
+  }
+}
+
+const unplugin = createUnplugin<Options>(options => ({
   name: NAME,
 
   writeBundle(outputOptions: any, outputBundle: any) {
@@ -49,9 +56,10 @@ export default createUnplugin<Options>(options => ({
         }
         return null
       })
-      .filter(v => !!v)
+      .filter(v => !!v) as Asset[]
 
     Promise.all(assets.map(asset => asset && uploadSourceMap(asset)))
+      .then(() => deleteSourceMaps(assets, options))
       .catch((err) => {
         throw err
       })
@@ -62,7 +70,11 @@ export default createUnplugin<Options>(options => ({
       const assets = getAssets(compiler, compilation, options!)
 
       if (assets?.length) {
-        await Promise.all(assets.map(asset => uploadSourceMap(asset)))
+        Promise.all(assets.map(asset => uploadSourceMap(asset)))
+          .then(() => deleteSourceMaps(assets, options!))
+          .catch((err) => {
+            throw err
+          })
       }
     }
 
@@ -75,3 +87,5 @@ export default createUnplugin<Options>(options => ({
     }
   },
 }))
+
+export default unplugin

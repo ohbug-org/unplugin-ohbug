@@ -115,6 +115,19 @@ module.exports = {
 
 <br></details>
 
+<details>
+<summary>esbuild</summary><br>
+
+```ts
+// esbuild.config.js
+import { build } from 'esbuild'
+import Starter from '@ohbug/unplugin/esbuild'
+
+build({ plugins: [Starter()] })
+```
+
+<br></details>
+
 ## Options
 
 ```typescript
@@ -123,6 +136,7 @@ interface Options {
   appVersion: string
   appType?: string
   endpoint?: string
+  deleteAfterUploading?: boolean
 }
 ```
 
@@ -141,3 +155,7 @@ interface Options {
 ### endpoint
 
 上传服务器的 URL
+
+### deleteAfterUploading
+
+上传后删除 sourceMap 默认为 `false`

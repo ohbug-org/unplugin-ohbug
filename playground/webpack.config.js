@@ -17,6 +17,7 @@ module.exports = {
         '52ec8631e1583957f7abb5216ec7512e6824aab90eb2307a1f6ed7cf5f33f8d3',
       appVersion: '0.0.0',
       appType: 'webpack',
+      deleteAfterUploading: true
     }),
   ],
 }
